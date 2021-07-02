@@ -1,0 +1,23 @@
+<!-- part of devise to show alert of signing in
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+-->
+<div class="row">
+  <div class="col-9">
+    <% if alert %>
+      <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          <%= alert %>
+      </div>
+    <% elsif notice %>
+      <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          <%= notice %>
+      </div>
+    <%end%>
+  </div>
+</div>
