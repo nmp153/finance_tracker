@@ -1,0 +1,16 @@
+<div class="col-6">
+  <%= render 'layouts/messages' %>
+</div>
+
+
+
+<!-- we put if @stock because if we don't search anything and just go on the page then we it will throw
+  undefined method error because ticker is not initalized with the @stock instance variable yet so only do this
+  when we search and we have the @stock instance variable -->
+<% if @stock %>
+  <div class="card card-header results-block">
+    <strong>Symbol: </strong> <%= @stock.ticker %>
+    <strong>Name: </strong> <%= @stock.name %>
+    <strong>Price: </strong> <%= @stock.last_price %>
+  </div>
+<% end %>

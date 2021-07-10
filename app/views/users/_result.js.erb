@@ -1,0 +1,4 @@
+<%# below we are grabbing the results id and having that equal to the result.html.erb parital for it to render
+    we also need to escape_javascript or we can do just j 
+  %>
+document.querySelector('#results').innerHTML = '<%= escape_javascript(render 'users/result.html') %>'
