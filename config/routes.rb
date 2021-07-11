@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'my_portfolio', to: 'users#my_portfolio'
   #to submit the stock form route
   get 'search_stock', to: 'stocks#search'
+
+  resources :user_stocks
 end
