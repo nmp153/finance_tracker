@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   #to submit the stock form route
   get 'search_stock', to: 'stocks#search'
 
-  resources :user_stocks
+  resources :user_stocks, only: [:create, :destroy]
 end

@@ -3,8 +3,10 @@ class StocksController < ApplicationController
 
   def search
     #this will check to make sure the params stock is present and not an empty string to deal with that error
+    Rails.logger.debug "params: #{params[:stock]}"
     if params[:stock].present?
       @stock = Stock.new_lookup(params[:stock])
+      Rails.logger.debug "stock model #{@stock}"
         #render json: @stock
         if @stock
           #we need to respond to the request for the AJAX call

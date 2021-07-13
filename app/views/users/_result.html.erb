@@ -1,4 +1,4 @@
-<div class="col-6 results-bl">
+<div class="col-6">
   <%= render 'layouts/messages' %>
 </div>
 
@@ -12,5 +12,20 @@
     <strong>Symbol: </strong> <%= @stock.ticker %>
     <strong>Name: </strong> <%= @stock.name %>
     <strong>Price: </strong> <%= @stock.last_price %>
+    <% if current_user.can_track_stock?(@stock.ticker) %>
+      <%#we need to pass 2 arguments into user_stocks_path so we can grab the user_id and the stock_id to be able to add the stock to the user's Portfolio  %>
+      <%= link_to 'Add To Portfolio', user_stocks_path(ticker: params[:stock], user: current_user), class: "btn btn-xs btn-success", method: :post %>
+    <% else %>
+    <span class="badge badge-secondary">
+      You Are Already Tracking
+      <% if !current_user.under_stock_limit? %>
+       10 stocks
+       <% end %>
+      <% if current_user.stock_already_tracked?(@stock.ticker) %>
+        this stock
+      <% end %>
+    </span>
+
+    <% end %>
   </div>
 <% end %>
